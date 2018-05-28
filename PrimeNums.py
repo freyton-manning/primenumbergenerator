@@ -4,7 +4,8 @@
 # Check all numbers less than the number.
 # Calculate the first 50 prime numbers and add them to a list.
 
-def primeNums():
+# function takes optional boolean to determine whether it will print the output or simply return a list of primes
+def primeNums(print_output = False):
     # we know 2 is the first prime number
     primeList = [2]
     # this is where we start our loop - we start our loop at 2 . i is the number we check to see if prime
@@ -31,5 +32,6 @@ def primeNums():
         if isPrime == True:
             primeList.append(i)
     # bookending the function - also making it so you can call the function.
-    print primeList
+    if print_output == True:
+        print primeList
     return primeList
