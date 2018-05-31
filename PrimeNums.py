@@ -16,24 +16,19 @@ def primeNums(print_output = False):
     while len(primeList) < 50:
         # until the list is 50 primes in length, keep trying to add primes, but skipping even numbers (which can't be prime)
         i +=2
-        # initializing (creating / defining) the variable isPrime and making default value to true
-        isPrime = True
-        # for every number less than i (which starts at 2 but then increments) and greater than 2 but less than half the number, do:
-        for x in range(2,(i+1)/2):
-            # initialize var called remainder - check if all numbers less than i are evenly divisible (no remainder)
-            remainder = i % x
+        if isprime(i) == True:
+            primeList.append(i)
+    if print_output == True:
+        print primeList
+    return primeList
+
+def isprime(num):
+    for x in range(2,(num+1)/2):
+            remainder = num % x
             if remainder == 0:
                 # if i is divisible by any number less than it (x), it's not prime and we set isPrime to False
                 isPrime = False
                 #print str(i) + " divided by" + str(x) + "has remainder " + str(remainder)
                 # because its not prime, stop checking other numbers
-                break
-            #if i % x != 0:
-            #break
-        # but if the number is prime, append the number (called i) to the list of primes (primeList)
-        if isPrime == True:
-            primeList.append(i)
-    # bookending the function - also making it so you can call the function.
-    if print_output == True:
-        print primeList
-    return primeList
+                return False
+    return True
